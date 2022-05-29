@@ -95,9 +95,36 @@ app.put("/todo/update", (req, res) => {
     // Save the new todos to the JSON file
     saveTodosData(existingTodos);
     console.log('Successfully updated Todo');
-    res.send({success: true, msg: 'Todo data added successfully'});
+    res.send({success: true, msg: 'Todo data updated successfully'});
 })
 
+// Delete a Todo task --- DELETE Route
+app.delete("/todo/delete", (req, res) => {
+    // Get the existing todo data
+    const existingTodos = getTodosData();
+
+    console.log(`existingTodos: ${JSON.stringify(existingTodos)}`);
+    
+    //Get the new todo task from the POST request object.
+    console.log(`req: ${req}`);
+    const todoData = req.body;
+
+    console.log(`todoData: ${JSON.stringify(todoData)}`);
+
+    // Incoming data validation
+    if(todoData.title === null || todoData.description === null) {
+        return res.status(401).send({error: true, msg: 'Todo Data missing'});
+    }
+    
+    // Filter the todo which you don't want to delete
+    const newListOfTodos = existingTodos.filter(todo => todo.title !== todoData.title)
+    console.log(`newListOfTodos: ${JSON.stringify(newListOfTodos)}`);
+
+    // Save the new todos to the JSON file
+    saveTodosData(newListOfTodos);
+    //console.log('Successfully updated Todo');
+    res.send({success: true, msg: 'Todo data deleted successfully'});
+})
 
 // Configure server PORT and start server
 const PORT = process.env.PORT || 8001;
