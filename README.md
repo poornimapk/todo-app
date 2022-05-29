@@ -6,31 +6,31 @@
 4. Delete a selected task.
 
 ## JSON file structure sample:
-
-[
-    {
-        id: 1,
-        title: "Meal Prep",
-        Description: "Finish cutting vegetables and plan out meals for all weekdays",
-        completed: false,
-    },
-    {
-        id: 2,
-        title: "Laundry",
-        Description: "Finish laundry and fold clothes",
-        completed: false,
-    },
-    {
-        id: 3,
-        title: "Run Roomba",
-        Description: "Schedule roomba",
-        completed: false,
-    },
-    {
-        id: 4,
-        title: "Kids' summer camp",
-        Description: "Enroll kids in summer camp",
-        completed: false,
-    },
-]
-`
+```
+    [
+        {
+            id: 1,
+            title: "Meal Prep",
+            Description: "Finish cutting vegetables and plan out meals for all weekdays",
+            completed: false,
+        },
+        {
+            id: 2,
+            title: "Laundry",
+            Description: "Finish laundry and fold clothes",
+            completed: false,
+        },
+        {
+            id: 3,
+            title: "Run Roomba",
+            Description: "Schedule roomba",
+            completed: false,
+        },
+        {
+            id: 4,
+            title: "Kids' summer camp",
+            Description: "Enroll kids in summer camp",
+            completed: false,
+        },
+    ]
+```
