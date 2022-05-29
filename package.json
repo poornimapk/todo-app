@@ -1,0 +1,26 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Simple ToDo app with CRUD using Node.js, Express and storing data in a JSON file.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poornimapk/todo-app.git"
+  },
+  "author": "Poornima P K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poornimapk/todo-app/issues"
+  },
+  "homepage": "https://github.com/poornimapk/todo-app#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
