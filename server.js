@@ -35,7 +35,7 @@ app.get('/todo/list', (re, res) => {
     res.send(todos);
 })
 
-// CREATE a ToDo task --- POST ROUTE
+// CREATE a ToDo task --- POST Route
 app.post('/todo/add', (req, res) => {
     // Get the existing ToDos so that we don't loose the current data
     const existingTodos = getTodosData();
@@ -65,6 +65,39 @@ app.post('/todo/add', (req, res) => {
     console.log("Todo added successfully");
     res.send({success: true, msg: 'Todo data added successfully'});
 })
+
+// Update a Todo task --- PUT Route
+app.put("/todo/update", (req, res) => {
+    // Get the existing todo data
+    const existingTodos = getTodosData();
+
+    console.log(`existingTodos: ${JSON.stringify(existingTodos)}`);
+    
+    //Get the new todo task from the POST request object.
+    console.log(`req: ${req}`);
+    const todoData = req.body;
+
+    console.log(`todoData: ${JSON.stringify(todoData)}`);
+
+    // Incoming data validation
+    if(todoData.title === null || todoData.description === null) {
+        return res.status(401).send({error: true, msg: 'Todo Data missing'});
+    }
+    
+    // Check whether the request Todo exists in Todos.JSON
+    existingTodos.find(todo => {
+        if(todo.title === todoData.title) {
+            todo.description = todoData.description;
+        }
+    })
+    console.log(JSON.stringify(existingTodos));
+
+    // Save the new todos to the JSON file
+    saveTodosData(existingTodos);
+    console.log('Successfully updated Todo');
+    res.send({success: true, msg: 'Todo data added successfully'});
+})
+
 
 // Configure server PORT and start server
 const PORT = process.env.PORT || 8001;
