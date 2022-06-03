@@ -1,4 +1,4 @@
-# Simple ToDo app with CRUD using Node.js, Express and storing data in a JSON file.
+# Simple ToDo API with CRUD using Node.js, Express and storing data in a JSON file.
 
 1. Create a todo task with title and description.
 2. Read all todo tasks and display details(title, description and status)
